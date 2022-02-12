@@ -1,0 +1,106 @@
+// .works {
+//   background-color: rgb(233, 228, 203);
+// }
+
+.examples-list {
+  @include tablet {
+    --card-item: 2;
+  }
+  @include desktop {
+    --card-item: 3;
+  }
+}
+
+.examples-list__item {
+  @include tablet {
+    display: flex;
+  }
+
+  @include desktop {
+    display: flex;
+  }
+}
+
+.sample {
+  width: 100%;
+}
+
+.sample__link {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  transition: box-shadow $function, outline-color $function;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+}
+
+.sample__pict-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+//    == Overlay-BOX ==
+.sample__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+  transition: transform $function;
+  opacity: 0;
+
+  .sample__link:hover &,
+  .sample__link:focus & {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sample__specification {
+  padding: 63px 24px;
+
+  font-size: 18px;
+  // font-weight: 400;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--bg-prime-color);
+}
+
+.sample__title {
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: calc(36 / 18);
+  letter-spacing: 0.06em;
+}
+
+// ---- НИЗ КАРТОЧЕК ---
+.sample__description {
+  flex-grow: 1;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid var(--border-card-color);
+  border-left: 1px solid var(--border-card-color);
+  border-right: 1px solid var(--border-card-color);
+}
+
+.sample__txt {
+  display: block;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.03em;
+  color: var(--text-prime-color);
+}

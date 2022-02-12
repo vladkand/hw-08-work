@@ -1,0 +1,26 @@
+.menu-toggle {
+  min-height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+
+  cursor: pointer;
+  border: none;
+
+  transition: outline-color $function, fill $function;
+
+  &:hover,
+  &:focus {
+    fill: var(--text-accent-color);
+    outline-color: var(--text-accent-color);
+  }
+
+  @include tablet {
+    display: none;
+  }
+}

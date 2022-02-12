@@ -1,0 +1,38 @@
+// ! new секция хедер
+
+.header {
+  position: relative;
+  border-bottom: 1px solid var(--header-border-color);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+
+  @include max-tel {
+    justify-content: space-between;
+  }
+}
+
+.header__logo {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  display: inline-block;
+
+  @include tablet {
+    padding-top: 26px;
+    padding-bottom: 26px;
+    margin-right: 88px;
+  }
+
+  @include desktop {
+    padding-top: 24px;
+    padding-bottom: 25px;
+    margin-right: 93px;
+  }
+}
+
+.nav-box {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,284 @@
+// // ! ============ МОДАЛЬНОЕ ОКНО =========
+.backdrop {
+  //  -- corset
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity $function;
+  overflow-y: scroll;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(2.5) rotateX(-360deg);
+}
+
+.modal {
+  // corset
+  position: absolute;
+  padding: 40px;
+  min-height: 581px;
+  top: 50%;
+  left: 50%;
+  max-width: 450px;
+  width: calc(100% - 30px);
+  // transform: translate(-50%, -50%);
+  border-radius: 4px;
+  background-color: var(--bg-prime-color);
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform $function;
+
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+
+  @include desktop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 528px;
+  }
+}
+
+// ==кнока Х модалки
+.modal__close {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  top: 8px;
+  right: 8px;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-prime-color);
+
+  transition: outline-color $function, fill $function;
+
+  &:hover,
+  &:focus {
+    outline-color: var(--text-accent-color);
+  }
+}
+
+.modal__icon {
+  fill: var(--black-color);
+  transition: fill $function;
+
+  .modal__close:hover &,
+  .modal__close:focus & {
+    fill: var(--text-accent-color);
+  }
+}
+
+// ---- ФОРМA МОДАЛЬНОГО ОКНА -----
+.modal__title {
+  display: block;
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: (30 / 20);
+  text-align: center;
+  // letter-spacing: 0.03em;
+  text-align: center;
+
+  color: var(--black-color);
+
+  @include desktop {
+    .modal__title {
+      line-height: (23 / 20);
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.form__label {
+  width: 100%;
+
+  margin-bottom: 4px;
+  font-size: 12px;
+  // font-weight: 400;
+  line-height: calc(14 / 12);
+  color: var(--text-second-color);
+  letter-spacing: 0.01em;
+}
+
+.form__input {
+  width: 100%;
+  height: 40px;
+  padding: 0 20px 0 42px;
+  font-size: 16px;
+  // font-weight: 400;
+  line-height: 1.17;
+  color: var(--text-second-color);
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border-color $function, outline-color $function;
+
+  &:hover,
+  &:focus {
+    outline-color: var(--text-accent-color);
+    cursor: pointer;
+    border-color: var(--text-accent-color);
+  }
+}
+
+.form__icon-position {
+  position: relative;
+}
+
+.form__icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  fill: var(--text-second-color);
+  transition: fill $function;
+
+  .form__input:hover + &,
+  .form__input:focus + & {
+    fill: var(--text-accent-color);
+  }
+}
+
+.form__comment {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form__input-comment {
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+  resize: none;
+  font-size: 14px;
+  // font-weight: 400;
+  line-height: 1.17;
+  color: var(--text-second-color);
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border-color $function, outline-color $function;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
+
+  &:hover,
+  &:focus {
+    outline-color: var(--text-accent-color);
+    cursor: pointer;
+    border-color: var(--text-accent-color);
+  }
+}
+
+//  --- СТИЛИ CHECK BOX
+
+//  --- ОБЕРТКА ДЛЯ ВСЕГО ЧЕК_БОКСА
+.accord {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.accord__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 12px;
+  // font-weight: 400;
+  line-height: (14 / 12);
+  // letter-spacing: 0.03em;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: (24 / 14);
+  }
+}
+//  ----- CКРЫВАЕМ CHECK-BOX ------- */
+.accord__check {
+  @extend %hidden;
+}
+//  --- ФОН И ГЕОМЕТРИЯ ДЛЯ ПСЕВДО-CHECK --  */
+.accord__icon-box {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+
+  border: 2px solid var(--text-second-color);
+  border-radius: 2px;
+
+  transition: background-color $function, border-color $function;
+
+  //  --- ПОВЕДЕНИЕ ЧЕК-БОКСА ПРИ :CHECKED --- */
+  .accord__check:checked + & {
+    background-color: var(--text-accent-color);
+    border-color: var(--text-accent-color);
+  }
+  //  --- ПОВЕДЕНИЕ ЧЕК-БОКСА ПРИ :FOCUS --- */
+  .accord__check:focus + & {
+    border-color: var(--text-accent-color);
+  }
+}
+.accord__icon {
+  position: absolute;
+}
+
+//  --- СТИЛИЗАЦИЯ ССЫЛКИ ----  */
+.accord__link {
+  color: var(--text-accent-color);
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+}
+
+//  --- КНОПКА В МОДАЛКЕ --- */
+
+// .form__btn {
+//   color: var(--bg-prime-color);
+//   background-color: var(--text-accent-color);
+//   cursor: pointer;
+
+//   transition: background-color $function, box-shadow $function;
+
+//   &:hover,
+//   &:focus {
+//     background-color: var(--bigButton-hover-focus);
+//     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+//   }
+// }

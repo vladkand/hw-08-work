@@ -1,0 +1,46 @@
+// ! --- СЕКЦИЯ КЛИЕНТЫ ---
+.client-list {
+  --card-item: 2;
+  // justify-content: space-between;
+}
+
+.client-list__item {
+  height: 92px;
+
+  @include tablet {
+    flex-basis: calc((100% - 6 * 15px) / 3);
+  }
+
+  @include desktop {
+    // flex-basis: calc((100% - 6 * 30px) / 6);
+    // margin-top: 0;
+  }
+}
+
+.client-list__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  border: 1px solid var(--icon-soc-color);
+  border-radius: 4px;
+  transition: outline-color $function, border-color $function;
+
+  &:hover,
+  &:focus {
+    outline-color: var(--text-accent-color);
+    border-color: var(--text-accent-color);
+  }
+}
+
+.client-list__icon {
+  fill: var(--icon-soc-color);
+  transition: fill $function;
+
+  .client-list__link:hover &,
+  .client-list__link:focus & {
+    fill: var(--text-accent-color);
+  }
+}

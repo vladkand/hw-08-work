@@ -1,0 +1,41 @@
+@mixin font($fs: 16px, $fw: 600, $lh: 1.33, $ls: 0.02em) {
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+// @include tel
+@mixin tel {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+
+// @include tablet
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+// @include desktop
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+// @include max-tel
+@mixin max-tel {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+// @include max-tablet
+@mixin max-tablet {
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}

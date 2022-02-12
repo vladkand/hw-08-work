@@ -1,0 +1,25 @@
+.button {
+  display: inline-block;
+  min-width: 200px;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(30 / 16);
+
+  color: var(--bg-prime-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  background-color: var(--text-accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color $function;
+
+  &:hover,
+  &:focus {
+    background-color: var(--bigButton-hover-focus);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+}

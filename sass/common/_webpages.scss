@@ -1,0 +1,34 @@
+// ! === СТИЛИЗАЦИЯ0 БЛОКА СОЦ-СЕТИ
+.webpages {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.webpages__item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.webpages__link {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color $function;
+
+  &:hover,
+  &:focus {
+    background-color: var(--text-accent-color);
+  }
+}
+
+.webpages__icon {
+  fill: var(--icon-soc-color);
+  transition: fill $function;
+  .webpages__link:hover &,
+  .webpages__link:focus & {
+    fill: var(--bg-prime-color);
+  }
+}

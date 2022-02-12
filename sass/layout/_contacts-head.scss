@@ -1,0 +1,55 @@
+//
+// !  new parshal
+//
+.contacts-head {
+  @include max-tel {
+    display: none;
+  }
+
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+
+  @include desktop {
+    flex-direction: row;
+  }
+}
+
+.contacts-head__item:first-child {
+  margin-bottom: 10px;
+
+  @include desktop {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+}
+
+.contacts-head__link {
+  display: flex;
+  align-items: center;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: (14 / 12);
+  letter-spacing: 0.02em;
+
+  color: var(--text-prime-color);
+  fill: currentColor;
+
+  transition: border-color $function, outline-color $function, fill $function, color $function;
+
+  &:hover,
+  &:focus {
+    color: var(--text-accent-color);
+    fill: currentColor;
+    outline-color: var(--text-accent-color);
+  }
+  @include desktop {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.contacts-head__icon {
+  margin-right: 10px;
+}
